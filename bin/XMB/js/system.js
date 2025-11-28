@@ -347,9 +347,6 @@ function resolveFilePath(filePath) {
     filePath = filePath.replace("{cwd}", CWD);
     filePath = filePath.replace("{bootpath}", System.boot_path);
     filePath = filePath.replace("//", "/");
-
-    // Replace all {...} expressions with resolved values
-    filePath = filePath.replace(/\{([^{}]+)\}/g, (_, expr) => eval(expr.trim()));
     if (!filePath.includes('?')) return filePath; // Literal path, return as is
 
     const prefixes = {
@@ -720,7 +717,7 @@ function setPOPSCheat(params) {
 
 function getPOPSElfPath(data) {
     const prefix = (data.dev === "mass") ? "XX." : "";
-    let path = data.path;
+    let path = "mass:/POPS/";
     if (data.dev === "hdd") {
         const part = mountHDDPartition("__common");
         path = `${part}:/POPS/`;
@@ -769,12 +766,6 @@ function findICO(baseFilename) { return findArt(baseFilename, "icon0.png"); }
 /*	Returns empty string if not found.											*/
 function findBG(baseFilename) { return findArt(baseFilename, "pic1.png"); }
 
-function findPIC2(baseFilename) {
-    let a = findArt(baseFilename, `pic2_0${UserConfig.Language + 1}.png`);
-    if (a === "") { return findArt(baseFilename, "pic2.png"); }
-    return a;
-}
-
 function tryDownloadGameArt(gameID, dir) {
     const requests = [];
     const baseUrl = `https://raw.githubusercontent.com/HiroTex/OSD-XMB-ARTDB/refs/heads/main/${dir}/`;
@@ -782,14 +773,7 @@ function tryDownloadGameArt(gameID, dir) {
     const paths = [
         "ICON0.PNG",
         "PIC1.PNG",
-        "PIC2.PNG",
-        "PIC2_01.PNG",
-        "PIC2_02.PNG",
-        "PIC2_03.PNG",
-        "PIC2_04.PNG",
-        "PIC2_05.PNG",
-        "PIC2_06.PNG",
-        "PIC2_07.PNG"
+        "PIC2.PNG"
     ];
 
     if (std.exists(gameDir)) { return true; }
@@ -810,9 +794,9 @@ function tryDownloadGameArt(gameID, dir) {
     requests.forEach((task) => { Tasks.Push(task); });
     Tasks.Push(() => {
         const dirList = System.listDir(gameDir);
-        for (let i = 0; i < dirList.length; i++) {
+        for (let i = 0; i < dir.length; i++) {
             const item = dirList[i];
-            if (item.size < 1024) { os.remove(`${gameDir}/${item.name}`); }
+            if (item.size < 32) { os.remove(`${gameDir}/${item.name}`); }
         }
 
         if (os.readdir(gameDir)[0].length === 0) { System.removeDirectory(gameDir); }
@@ -839,7 +823,7 @@ function getGameArt(game, dir = "PS2") {
 
     const ico0   = findICO(id);
     const pic1   = findBG(id);
-    const pic2   = findPIC2(id);
+    const pic2   = findArt(id, "pic2.png");
 
     if (ico0)   { game.CustomIcon = ico0; }
     if (pic1)   { game.CustomBG   = pic1; }
@@ -1204,6 +1188,7 @@ function DbgHandler() {
     const mem = System.getMemoryStats();
 	DebugInfo.push(`${Screen.getFPS(360)}  FPS`);
 	DebugInfo.push(`RAM USAGE: ${Math.floor(mem.used / 1024)}KB / ${Math.floor(ee_info.RAMSize / 1024)}KB`);
+	DebugInfo.push(`VRAM USAGE: ${Math.floor(Screen.getMemoryStats(Screen.VRAM_USED_TOTAL) / 1024)}KB / 4096KB`);
 	DebugInfo.push(`WIDTH: ${ScrCanvas.width} HEIGHT: ${ScrCanvas.height}`);
     DebugInfo.push(`DATE: ${gTime.day}/${gTime.month}/${gTime.year} ${gTime.hour}:${gTime.minute}:${gTime.second}`);
 
@@ -1236,20 +1221,25 @@ function xlogProcess() {
 //////////////////////////////////////////////////////////////////////////
 
 let gExit 		= {};
-let gDebug      = false;
+let gDebug      = true;
 let gDbgTxt     = [];
 let gArt     	= getArtPaths();
 let gDevices    = getAvailableDevices();
 let ScrCanvas 	= Screen.getMode();
 const ee_info   = System.getCPUInfo();
 
-const vmodes    = [ Screen.NTSC, Screen.PAL, Screen.DTV_480p ];
+const vmodes    = [ Screen.NTSC, Screen.PAL, Screen.DTV_480p, Screen.DTV_720p, Screen.DTV_1080i ];
 ScrCanvas.width = (UserConfig.Aspect === 0) ? 640 : 704;
+//ScrCanvas.width = [640, 640, 640, 720, 960][UserConfig.Vmode];
+
 if ('Vmode' in UserConfig) {
-    ScrCanvas.height    = (UserConfig.Vmode === 1) ? 512 : 480;
-    ScrCanvas.interlace = (UserConfig.Vmode === 2) ? Screen.PROGRESSIVE : Screen.INTERLACED;
-    ScrCanvas.field     = (UserConfig.Vmode === 2) ? Screen.FRAME : Screen.FIELD;
+    //ScrCanvas.height = [480, 512, 480, 512, 512][UserConfig.Vmode];
+	ScrCanvas.width = [640, 640, 640, 640, 1024][UserConfig.Vmode];
+	ScrCanvas.height = [480, 512, 480, 512, 512][UserConfig.Vmode];
+    ScrCanvas.interlace = [Screen.INTERLACED, Screen.INTERLACED, Screen.PROGRESSIVE, Screen.PROGRESSIVE, Screen.INTERLACED][UserConfig.Vmode];
+    ScrCanvas.field     = [Screen.FIELD, Screen.FIELD, Screen.FRAME, Screen.FRAME, Screen.FIELD][UserConfig.Vmode];
     ScrCanvas.mode      = vmodes[UserConfig.Vmode];
+	ScrCanvas.psm = [Screen.CT24, Screen.CT24, Screen.CT24, Screen.CT16, Screen.CT16][UserConfig.Vmode];
 }
 Screen.setMode(ScrCanvas);
 let TmpCanvas = Screen.getMode();
