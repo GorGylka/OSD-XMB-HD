@@ -1235,7 +1235,7 @@ ScrCanvas.width = (UserConfig.Aspect === 0) ? 640 : 704;
 if ('Vmode' in UserConfig) {
     //ScrCanvas.height = [480, 512, 480, 512, 512][UserConfig.Vmode];
 	ScrCanvas.width = [640, 640, 640, 640, 1024][UserConfig.Vmode];
-	ScrCanvas.height = [480, 512, 480, 512, 512][UserConfig.Vmode];
+	ScrCanvas.height = [480, 512, 480, 512, 576][UserConfig.Vmode];
     ScrCanvas.interlace = [Screen.INTERLACED, Screen.INTERLACED, Screen.PROGRESSIVE, Screen.PROGRESSIVE, Screen.INTERLACED][UserConfig.Vmode];
     ScrCanvas.field     = [Screen.FIELD, Screen.FIELD, Screen.FRAME, Screen.FRAME, Screen.FIELD][UserConfig.Vmode];
     ScrCanvas.mode      = vmodes[UserConfig.Vmode];
@@ -1246,3 +1246,4 @@ let TmpCanvas = Screen.getMode();
 
 ftxtWrite(`${PATHS.XMB}log.txt`, ""); // Init Log File.
 console.log("INIT LIB: SYSTEM COMPLETE");
+
