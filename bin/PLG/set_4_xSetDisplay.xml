@@ -3,6 +3,8 @@
     <Component Name="NTSC" Icon="-1"/>
     <Component Name="PAL" Icon="-1"/>
     <Component Name="DTV 480p" Icon="-1"/>
+	<Component Name="DTV 720p" Icon="-1"/>
+	<Component Name="DTV 1080i" Icon="-1"/>
     <Dialog Type="CONFIRMATION" BG="false" Icon="SET_DISPLAY" Title="{DISPLAYSET1.NAME}" Text="{VMODE_MSG}" ConfirmBtn="true">
       <Confirm>
         <![CDATA[
@@ -27,6 +29,8 @@
             case Screen.NTSC: return 0; break;
             case Screen.PAL: return 1; break;
             case Screen.DTV_480p: return 2; break;
+			case Screen.DTV_720p: return 3; break;
+			case Screen.DTV_1080i: return 4; break;
         }
       ]]>
     </Default>
@@ -36,9 +40,11 @@
           if (ScrCanvas.mode === vmodes[index]) { return; }
 
           TmpCanvas = Screen.getMode();
-          ScrCanvas.height = (index === 1) ? 512 : 480;
-          ScrCanvas.interlace = (index === 2) ? Screen.PROGRESSIVE : Screen.INTERLACED;
-          ScrCanvas.field = (index === 2) ? Screen.FRAME : Screen.FIELD;
+		  ScrCanvas.width = [640, 640, 640, 640, 1024][index];
+          ScrCanvas.height = [480, 512, 480, 512, 512][index];
+		  ScrCanvas.interlace = [Screen.INTERLACED, Screen.INTERLACED, Screen.PROGRESSIVE, Screen.PROGRESSIVE, Screen.INTERLACED][index];
+          ScrCanvas.field = [Screen.FIELD, Screen.FIELD, Screen.FRAME, Screen.FRAME, Screen.FIELD][index];
+		  ScrCanvas.psm = [Screen.CT24, Screen.CT24, Screen.CT24, Screen.CT16, Screen.CT16][index];
           ScrCanvas.mode = vmodes[index];
           Screen.setMode(ScrCanvas);
           Screen.setParam(Screen.DEPTH_TEST_ENABLE, false);
