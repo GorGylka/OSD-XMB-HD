@@ -842,19 +842,14 @@ function DrawDashLoadIcon(Properties) {
 	DashElements.LoadIco.angle = DashUI.LoadSpinning;
 	DashElements.LoadIco.draw(Properties.X, Properties.Y);
 }
-function IsCustomIcon(Properties) {
-    if (!('CustomIcon' in Properties) || typeof Properties.CustomIcon !== "string") { return false; }
-    Properties.CustomIcon = resolveFilePath(Properties.CustomIcon);
-    return std.exists(Properties.CustomIcon);
-}
 function DrawDashIcon(Properties) {
 	let Image = false;
-    let Ready = false;
-    let Custom = IsCustomIcon(Properties);
+	let Ready = false;
 	Properties.Alpha = alphaCap(Properties.Alpha);
 	if (Properties.Alpha < 1) { return; }
 
-    if (Custom) {
+    if (('CustomIcon' in Properties) && (typeof Properties.CustomIcon === "string")) {
+        Properties.CustomIcon = resolveFilePath(Properties.CustomIcon);
         const customImg = ImageCache.Get(Properties.CustomIcon);
         Ready = customImg && customImg.ready();
         if (Ready) { Image = customImg; }
@@ -2325,10 +2320,8 @@ function DrawUIContext() {
         selText = "..." + selText.substring(start, start + 20);
     }
 
-    const selIcoXMod = items[current].Icon && (items[current].Icon !== -1);
-
     const SelName = {
-        Text: selIcoXMod ? [`     ${selText}`] : [selText],
+        Text: selico ? [`     ${selText}`] : [selText],
         Position: { X: baseX, Y: baseY + selYmod },
         Alpha: baseA,
         Color: { R: UICONST.TextSelectedColor.R, G: UICONST.TextSelectedColor.G, B: UICONST.TextSelectedColor.B },

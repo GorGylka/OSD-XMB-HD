@@ -1,0 +1,69 @@
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_0_xExplorer.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_0_xExplorer.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_0_xMcUtils.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_0_xMcUtils.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_0_xSasApps.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_0_xSasApps.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_1_xOPL.json
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_1_xOPL.json
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_999_xPS1.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_999_xPS1.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: gme_999_xPS2.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: gme_999_xPS2.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: net_0_xArt.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: net_0_xArt.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: pic_0_xViewer.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: pic_0_xViewer.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_0_xSetGame.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_0_xSetGame.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_1_xSetSys.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_1_xSetSys.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_2_xSetTheme.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_2_xSetTheme.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_3_xSetTime.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_3_xSetTime.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_4_xSetDisplay.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_4_xSetDisplay.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_5_xSetSecurity.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_5_xSetSecurity.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: set_6_xSetNet.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: set_6_xSetNet.xml
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: usr_0_xPowerOff.json
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: usr_0_xPowerOff.json
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: usr_1_xExit.json
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: usr_1_xExit.json
+[ 00:48:47:871 ] DashPluginsInit(): Loading Plugin: usr_2_xRefresh.json
+[ 00:48:47:871 ] DashPluginsInit(): Loaded Plugin: usr_2_xRefresh.json
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_0_xExplorer.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin gme_0_xExplorer.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_0_xMcUtils.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin gme_0_xMcUtils.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_0_xSasApps.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_1_xOPL.json.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin gme_1_xOPL.json Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_999_xPS1.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: gme_999_xPS2.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: net_0_xArt.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin net_0_xArt.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: pic_0_xViewer.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin pic_0_xViewer.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_0_xSetGame.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_0_xSetGame.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_1_xSetSys.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_1_xSetSys.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_2_xSetTheme.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_2_xSetTheme.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_3_xSetTime.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_3_xSetTime.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_4_xSetDisplay.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_4_xSetDisplay.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_5_xSetSecurity.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_5_xSetSecurity.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: set_6_xSetNet.xml.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin set_6_xSetNet.xml Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: usr_0_xPowerOff.json.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin usr_0_xPowerOff.json Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: usr_1_xExit.json.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin usr_1_xExit.json Succesfully processed.
+[ 00:48:47:871 ] DashPluginsProcess(): Processing Plugin: usr_2_xRefresh.json.
+[ 00:48:47:871 ] DashPluginsProcess(): Plugin usr_2_xRefresh.json Succesfully processed.

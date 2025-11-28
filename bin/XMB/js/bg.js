@@ -29,7 +29,7 @@ function BgHandler() {
 
     if (!tmpBgImg && !customBgImg && !uiBgImg) {
         if ((Waves) && (UserConfig.Waves)) { Waves.Render(); }
-        DrawTexture();
+        //DrawTexture();
         DrawDailyOverlay();
     }
 
@@ -97,7 +97,7 @@ function MonthColorsInit() {
 	monthColors.push({ R: 0x00, G: 0x00, B: 0x00 });
 }
 function BgElementsInit() {
-	BgElements.BgTex = new Image(`${PATHS.XMB}dash/dash_bg.png`);
+	/*BgElements.BgTex = new Image(`${PATHS.XMB}dash/dash_bg.png`);
 	BgElements.BgTex.optimize();
 	BgElements.BgTex.filter = LINEAR;
 	BgElements.BgTex.startx = 2;
@@ -109,7 +109,7 @@ function BgElementsInit() {
 	BgElements.BgDailyOv.optimize();
 	BgElements.BgDailyOv.filter = LINEAR;
 	BgElements.BgDailyOv.startx = 2;
-	BgElements.BgDailyOv.starty = 2;
+	BgElements.BgDailyOv.starty = 2;*/
 
 	BgElements.BgColor = {
 		Color: getBgColor(),
@@ -174,11 +174,11 @@ function DrawDailyOverlay() {
     BgElements.BgDailyOv.color = Color.setA(BgElements.BgDailyOv.color, daily);
 	BgElements.BgDailyOv.draw(0,-5);
 }
-function DrawTexture() {
+/*function DrawTexture() {
 	BgElements.BgTex.width = ScrCanvas.width;
 	BgElements.BgTex.height = ScrCanvas.height;
 	BgElements.BgTex.draw(0,0);
-}
+}*/
 
 //////////////////////////////////////////////////////////////////////////
 ///*				   	     Background Image						  *///
