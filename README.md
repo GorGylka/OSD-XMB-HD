@@ -1,5 +1,7 @@
 # Fork with HD Support
 
+<img src="https://github.com/GorGylka/OSD-XMB-HD/blob/main/test.jpg" width=70% height=70%>
+
 720p  
 <img src="https://github.com/GorGylka/OSD-XMB-HD/blob/main/720.jpg" width=50% height=50%>
 
